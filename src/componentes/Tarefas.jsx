@@ -1,4 +1,4 @@
-import {ChevronRightIcon, TrashIcon } from "lucide-react";
+import {CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Botao from "./Botao";
 
@@ -17,7 +17,8 @@ function Tarefas({tarefas, tarefaClicada, tarefaDeletada}) {
                 <li key={tarefas.id} className="flex gap-2">
                 <button 
                 onClick={() => tarefaClicada(tarefas.id)}
-                className={`bg-slate-400 w-full text-left text-white p-2 rounded-md w- ${tarefas.concluido && 'line-through'}`}>
+                className={` flex gap-2 bg-slate-400 w-full text-left text-white p-2 rounded-md w- ${tarefas.concluido && 'line-through'}`}>
+                    {tarefas.concluido ? <CheckIcon /> : null}
                     {tarefas.nome}
                 </button>
 

@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronLeftIcon } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom"
 import Titulo from "../componentes/Titulo";
+import { ChevronLeftIcon } from "lucide-react";
 
 function PaginaTarefas() {
     const [parametros] = useSearchParams();
