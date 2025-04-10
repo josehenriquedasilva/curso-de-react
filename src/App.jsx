@@ -5,7 +5,10 @@ import { v4 } from "uuid";
 import Titulo from "./componentes/Titulo";
 
 function App() {
-  const [tarefas, setTarefas] = useState(JSON.parse(localStorage.getItem("tarefas") || []));
+  const [tarefas, setTarefas] = useState(() => {
+    const storedTarefas = localStorage.getItem("tarefas");
+    return storedTarefas ? JSON.parse(storedTarefas) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
