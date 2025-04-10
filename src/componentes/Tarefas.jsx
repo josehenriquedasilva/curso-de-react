@@ -5,28 +5,28 @@ import Botao from "./Botao";
 function Tarefas({tarefas, tarefaClicada, tarefaDeletada}) {
     const navegacao = useNavigate();
 
-    function detalhesClick(tarefas) {
+    function detalhesClick(tarefa) {
         const query = new URLSearchParams();
-        query.set("titulo", tarefas.nome);
-        query.set("descricao", tarefas.descricao);
+        query.set("titulo", tarefa.nome);
+        query.set("descricao", tarefa.descricao);
         navegacao(`/tarefas?${query.toString()}`)
     }
     return (
         <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
-            {tarefas.map((tarefas) => (
-                <li key={tarefas.id} className="flex gap-2">
+            {tarefas.map((tarefa) => (
+                <li key={tarefa.id} className="flex gap-2">
                 <button 
-                onClick={() => tarefaClicada(tarefas.id)}
-                className={` flex gap-2 bg-slate-400 w-full text-left text-white p-2 rounded-md w- ${tarefas.concluido && 'line-through'}`}>
-                    {tarefas.concluido && <CheckIcon />}
-                    {tarefas.nome}
+                onClick={() => tarefaClicada(tarefa.id)}
+                className={` flex gap-2 bg-slate-400 w-full text-left text-white p-2 rounded-md w- ${tarefa.concluido && 'line-through'}`}>
+                    {tarefa.concluido && <CheckIcon />}
+                    {tarefa.nome}
                 </button>
 
-                <Botao onClick={() => detalhesClick(tarefas)}>
+                <Botao onClick={() => detalhesClick(tarefa)}>
                     <ChevronRightIcon />
                 </Botao>
 
-                <Botao onClick={() => tarefaDeletada(tarefas.id)}>
+                <Botao onClick={() => tarefaDeletada(tarefa.id)}>
                     <TrashIcon />
                 </Botao>
                 </li>
