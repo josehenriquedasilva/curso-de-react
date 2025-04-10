@@ -17,7 +17,7 @@ function App() {
   function tarefaClicada(tarefasId) {
     const novaLista = tarefas.map(tarefa => {
       if (tarefa.id === tarefasId) {
-        return {...tarefa, concluido: !tarefa.concluido}
+        return {...tarefa, concluido: !tarefa.concluido};
       }
       return tarefa;
     });
@@ -25,32 +25,30 @@ function App() {
   };
 
   function tarefaDeletada(tarefasId) {
-    const novaLista = tarefas.filter(tarefa => tarefa.id != tarefasId);
+    const novaLista = tarefas.filter(tarefa => tarefa.id !== tarefasId);
     setTarefas(novaLista);
   };
 
   function tarefaAdicionada(nome, descricao) {
-    const novaLista = {
-      id: v4(), 
+    const novaTarefa = {
+      id: v4(),
       nome,
       descricao,
       concluido: false
     };
-    setTarefas([...tarefas, novaLista]);
+    setTarefas([...tarefas, novaTarefa]);
   };
 
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
-      <Titulo>Gerenciador de Tarefas</Titulo>
-      <AddTarefas 
-      tarefaAdicionada={tarefaAdicionada}
-      />
-      <Tarefas
-      tarefas={tarefas}
-      tarefaClicada={tarefaClicada} 
-      tarefaDeletada={tarefaDeletada}
-      />
+        <Titulo>Gerenciador de Tarefas</Titulo>
+        <AddTarefas tarefaAdicionada={tarefaAdicionada} />
+        <Tarefas
+          tarefas={tarefas}
+          tarefaClicada={tarefaClicada}
+          tarefaDeletada={tarefaDeletada}
+        />
       </div>
     </div>
   );

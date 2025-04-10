@@ -9,7 +9,7 @@ function AddTarefas({tarefaAdicionada}) {
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
         <Input 
             type="text" 
-            placeholder="Digite o título"
+            placeholder="Digite o título aqui"
             value={titulo}
             onChange={(event) => setTitulo(event.target.value)}
         />
