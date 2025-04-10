@@ -15,11 +15,11 @@ function App() {
   }, [tarefas]);
 
   function tarefaClicada(tarefasId) {
-    const novaLista = tarefas.map(tarefas => {
-      if (tarefas.id === tarefasId) {
-        return {...tarefas, concluido: !tarefas.concluido}
+    const novaLista = tarefas.map(tarefa => {
+      if (tarefa.id === tarefasId) {
+        return {...tarefas, concluido: !tarefa.concluido}
       }
-      return tarefas
+      return tarefa
     });
     setTarefas(novaLista);
   };
