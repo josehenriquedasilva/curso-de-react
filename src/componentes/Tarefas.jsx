@@ -18,7 +18,7 @@ function Tarefas({tarefas, tarefaClicada, tarefaDeletada}) {
                 <button 
                 onClick={() => tarefaClicada(tarefas.id)}
                 className={` flex gap-2 bg-slate-400 w-full text-left text-white p-2 rounded-md w- ${tarefas.concluido && 'line-through'}`}>
-                    {tarefas.concluido ? <CheckIcon /> : null}
+                    {tarefas.concluido && <CheckIcon />}
                     {tarefas.nome}
                 </button>
 
