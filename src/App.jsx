@@ -11,17 +11,6 @@ function App() {
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
   }, [tarefas]);
 
-  useEffect(() => {
-    const fatchTaefas = async () => {
-      const responsavel = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=10", {
-        method: "GET",
-      });
-      const dados = await responsavel.json();
-      setTarefas(dados);
-    };
-    //fatchTaefas();
-  }, []);
-
   function tarefaClicada(tarefasId) {
     const novaLista = tarefas.map(tarefas => {
       if (tarefas.id === tarefasId) {
